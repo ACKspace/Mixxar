@@ -2,7 +2,6 @@ import serial,os,math
 
 #reads serial port
 ser = serial.Serial('com7', 9600)
-ser.readline()
 
 #initialize the processes and volume for each slider using dictionaries
 referentie = {"A": "skype.exe", "B": "chrome.exe", "C": "vlc.exe", "D": "steam.exe"}
