@@ -4,14 +4,18 @@ import serial,os,math
 ser = serial.Serial('com7', 9600)
 ser.readline()
 
+#initialize the processes and volume for each slider using dictionaries
 referentie = {"A": "skype.exe", "B": "chrome.exe", "C": "vlc.exe", "D": "steam.exe"}
 setVolume = {"A": 0, "B": 0, "C": 0, "D": 0}
 
+#main loop
 while 1:
+    #read the serial output and the slider for which the output is given
     serialreading = ser.readline()
     serialVolume = float(serialreading[1:])/1024.0
     slider = serialreading[0]
     
+    #set new volume if the slider has changed, constantly adjusting is more resource-heavy
     if serialVolume != setVolume[slider]:
         os.system("nircmd setappvolume %s %f" %(referentie[slider], serialVolume))
         setVolume[slider] = serialVolume
