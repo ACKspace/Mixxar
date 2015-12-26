@@ -34,16 +34,6 @@ while not ardFound:
 #return ready state to the arduino to begin slider configuration
 ser.write("OS READY")
 
-#start loop to write all sliders to the dictionaries
-print "Configuring volume sliders:"
-while ser.readline() != "SLIDERS DONE":
-	pass
-
-#configuration is done and the script will continue to the main loop after 10 seconds
-print "Sliders are configured! Starting in 10..."
-time.sleep(10)
-os.system("cls")
-
 #main loop
 while 1:
     #read the serial output and the slider for which the output is given
