@@ -34,34 +34,7 @@ while not ardFound:
 #return ready state to the arduino to begin slider configuration
 ser.write("OS READY")
 
-
-'''ser = serial.Serial(port, 9600)
-#send ready state back to the arduino to start configuring the sliders
-ser.write("OS READY")
-
-while 1:
-    print ser.readline()
-    time.sleep(1)'''
-
-
-'''os.system("echo 'Connecting to arduino...'")
-ser.write("INIT READY")
-x = 1
-while ser.readline() != "ARDUINO READY":
-    #poll once every second as this more than needed
-    os.system("echo 'Attempt %i'" %(x))
-    x += 1
-    time.sleep(1)
-os.system("echo 'Connected!'")'''
-
-
-
-
-
-
-
-
-'''#start loop to write all sliders to the dictionaries
+#start loop to write all sliders to the dictionaries
 print "Configuring volume sliders:"
 while ser.readline() != "SLIDERS DONE":
 	pass
@@ -81,4 +54,4 @@ while 1:
     #set new volume if the slider has changed, constantly adjusting is more resource-heavy
     if serialVolume != setVolume[slider]:
         os.system("nircmd setappvolume %s %f" %(processes[slider], serialVolume))
-        setVolume[slider] = serialVolume'''
+        setVolume[slider] = serialVolume
