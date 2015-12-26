@@ -1,16 +1,20 @@
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
-  
+  Serial.println("ARDUINO READY");
 }
 
 int valA = 0;
 int valB = 0;
 int valC = 0;
 int valD = 0;
+bool OSFound = false;
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  while (!OSFound){
+    if (Serial.readString() == "OS READY"){
+      OSFound = true;
+    }
+  }
   valA = analogRead(0);
   Serial.println("A" + String(valA));
   delay(50);
