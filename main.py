@@ -3,7 +3,7 @@ import serial,os,math,time
 os.system("cls")
 
 #initialize the processes and volume for each slider using dictionaries
-processes = {"A": "skype.exe", "B": "chrome.exe", "C": "vlc.exe", "D": "steam.exe"}
+program = {"A": "skype.exe", "B": "chrome.exe", "C": "vlc.exe", "D": "steam.exe"}
 setVolume = {"A": 0, "B": 0, "C": 0, "D": 0}
 
 #cycle through all available COM ports to poll for a connected device
@@ -43,5 +43,5 @@ while 1:
     
     #set new volume if the slider has changed, constantly adjusting is more resource-heavy
     if serialVolume != setVolume[slider]:
-        os.system("nircmd setappvolume %s %f" %(processes[slider], serialVolume))
+        os.system("nircmd setappvolume %s %f" %(program[slider], serialVolume))
         setVolume[slider] = serialVolume
