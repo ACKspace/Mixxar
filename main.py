@@ -15,7 +15,7 @@ while not ardFound:
     for port in ports:
         #print "Testing %s" %(port)
         try:
-            ser = serial.Serial(port, 9600)
+            ser = serial.Serial(port, 9600, timeout=4)
         except (OSError, serial.SerialException):
             pass        
         else:
