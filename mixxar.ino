@@ -16,15 +16,15 @@ void loop() {
     }
   }
   valA = analogRead(0);
-  Serial.println("A" + String(valA));
+  Serial.println("CON-OK" + "A" + String(valA));
   delay(50);
   valB = analogRead(1);
-  Serial.println("B" + String(valB));
+  Serial.println("CON-OK" + "B" + String(valB));
   delay(50);
   valC = analogRead(2);
-  Serial.println("C" + String(valC));
+  Serial.println("CON-OK" + "C" + String(valC));
   delay(50);
   valD = analogRead(3);
-  Serial.println("D" + String(valD));
+  Serial.println("CON-OK" + "D" + String(valD));
   delay(50);
 }
